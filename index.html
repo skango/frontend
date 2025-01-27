@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skango Games - მთავარი</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #ff7f00;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .burger-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #222;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #ff7f00;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .burger-menu {
+                display: block;
+            }
+        }
+        #hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #ff7f00, #ff5500);
+            color: white;
+        }
+        .games-container, #reviews-container, #contact {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .game, .review {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .game:last-child, .review:last-child {
+            border-bottom: none;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff7f00;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff5500;
+        }
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Skango Games</div>
+            <div class="burger-menu" id="burger-menu">☰</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#games">თამაშები</a></li>
+                <li><a href="#reviews">შეფასებები</a></li>
+                <li><a href="#contact">კონტაქტი</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="hero">
+        <h1>მოგესალმებით Skango Games-ში!</h1>
+        <p>აღმოაჩინეთ საუკეთესო თამაშები და შეუდექით თავგადასავლებს.</p>
+    </section>
+    
+    <section id="games">
+        <h2>ჩვენი თამაშები</h2>
+        <div class="games-container">
+            <div class="game">
+                <h3>Catch a bouquet</h3>
+                <p>Catch a bouquet is a mobile game we made for British #1 flower seller shop "Prestige Flowers".</p>
+            </div>
+            <div class="game">
+                <h3>The a B2LL</h3>
+                <p>Step into a world of rhythmic excitement with our captivating action platformer...</p>
+            </div>
+            <div class="game">
+                <h3>Little Red Riding Hood</h3>
+                <p>With the help of the Read Reality application, you can bring the Little Red Riding Hood book to life...</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="reviews">
+        <h2>მომხმარებლის შეფასებები</h2>
+        <div id="reviews-container"></div>
+    </section>
+    
+    <section id="contact">
+        <h2>დაგვიკავშირდით</h2>
+        <form id="contact-form">
+            <label for="name">სახელი:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">ელ. ფოსტა:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">შეტყობინება:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">გაგზავნა</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Skango Games. ყველა უფლება დაცულია.</p>
+    </footer>
+    
+    <script>
+        document.getElementById("burger-menu").addEventListener("click", function() {
+            document.getElementById("nav-links").classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
