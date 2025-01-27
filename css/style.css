@@ -1,0 +1,112 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+header {
+    background-color: #ff7f00;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.burger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: #222;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #ff7f00;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .burger-menu {
+        display: block;
+    }
+}
+#hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ff7f00, #ff5500);
+    color: white;
+}
+.games-container, #reviews-container, #contact {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.game, .review {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.game:last-child, .review:last-child {
+    border-bottom: none;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff7f00;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #ff5500;
+}
+footer {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
