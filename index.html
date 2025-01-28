@@ -60,6 +60,7 @@
             <textarea id="message" name="message" required></textarea>
             <button type="submit">გაგზავნა</button>
         </form>
+        <div id="error-messages" style="color: red;"></div> <!-- Error message display area -->
     </section>
     <div id="cookiePopup" class="cookie-popup" style="display: flex;">
         <p>This website uses cookies to enhance the user experience.</p>
@@ -103,19 +104,49 @@
 
         fetchReviews();
 
+        function acceptCookies() {
+            localStorage.setItem("cookieAccepted", "true");
+            document.getElementById("cookiePopup").style.display = "none";
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem("cookieAccepted")) {
+                document.getElementById("cookiePopup").style.display = "none";
+            }
+        }
+
+        // Form validation
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const errorMessages = [];
+
+            // Regex patterns
+            const namePattern = /^[A-Za-z\s]+$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validation checks
+            if (!namePattern.test(name)) {
+                errorMessages.push("სახელი უნდა შეიცავდეს მხოლოდ ასოებს და სივრცეებს.");
+            }
+            if (!emailPattern.test(email)) {
+                errorMessages.push("ელ. ფოსტა არ არის სწორი ფორმატში.");
+            }
+            if (message.trim() === "") {
+                errorMessages.push("შეტყობინება არ უნდა იყოს ცარიელი.");
+            }
+
+            // Display error messages or submit the form
+            if (errorMessages.length > 0) {
+                document.getElementById("error-messages").innerText = errorMessages.join("\n"); // Display errors
+            } else {
+                this.submit(); // Submit the form if valid
+            }
+        });
         
-
-
-function acceptCookies() {
-    localStorage.setItem("cookieAccepted", "true");
-    document.getElementById("cookiePopup").style.display = "none";
-}
-
-window.onload = function() {
-    if (localStorage.getItem("cookieAccepted")) {
-        document.getElementById("cookiePopup").style.display = "none";
-    }
-}
     </script>
 </body>
 </html>
