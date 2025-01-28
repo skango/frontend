@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
     <header>
         <nav>
             <div class="logo">Skango Games</div>
@@ -60,7 +61,10 @@
             <button type="submit">გაგზავნა</button>
         </form>
     </section>
-    
+    <div id="cookiePopup" class="cookie-popup" style="display: flex;">
+        <p>This website uses cookies to enhance the user experience.</p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
     <footer>
         <p>&copy; 2025 Skango Games. ყველა უფლება დაცულია.</p>
     </footer>
@@ -98,6 +102,20 @@
         }
 
         fetchReviews();
+
+        
+
+
+function acceptCookies() {
+    localStorage.setItem("cookieAccepted", "true");
+    document.getElementById("cookiePopup").style.display = "none";
+}
+
+window.onload = function() {
+    if (localStorage.getItem("cookieAccepted")) {
+        document.getElementById("cookiePopup").style.display = "none";
+    }
+}
     </script>
 </body>
 </html>
