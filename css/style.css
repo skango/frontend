@@ -67,6 +67,11 @@ nav {
     background: linear-gradient(135deg, #ff7f00, #ff5500);
     color: white;
 }
+.hero-image {
+    max-width: 100%;
+    height: 200px; /* Ensures the image does not exceed the width of its container */
+    margin-top: 20px; /* Adds some space above the image */
+}
 .games-container, #reviews-container, #contact {
     max-width: 800px;
     margin: 40px auto;
